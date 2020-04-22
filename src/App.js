@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import ConditionalSection from './sections/conditional'
+import cars from './data/cars.json'
+
+class CarItem extends Component{
+  render() {
+    const { car } = this.props
+    return(
+      <li>
+        <p><strong>Nombre: </strong>{car.name}</p>
+        <p><strong>Marca: </strong>{car.company}</p>
+      </li>
+    )
+  }
+}
 
 function App() {
+  const numbers = [1, 1, 3 ,4 ,5]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ConditionalSection />
+      <div>
+        {numbers.map((number, index) => {
+          return <p key={index}>Soy el número {number}</p>})}
+      </div>
+      <div>
+        <ul>
+          {
+            cars.map(car => {
+              return <CarItem key={car.id} car={car} />
+            })
+          }
+        </ul>
+      </div>
     </div>
   );
 }
