@@ -1,46 +1,31 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
 import ConditionalSection from './sections/conditional'
 import Forms from './sections/forms'
+import Box from './sections/box'
+import CarItem from './sections/car_item'
+import FetchExample from './sections/fetch_example'
 import cars from './data/cars.json'
-
-class CarItem extends Component{
-  render() {
-    const { car } = this.props
-    return(
-      <li>
-        <p><strong>Nombre: </strong>{car.name}</p>
-        <p><strong>Marca: </strong>{car.company}</p>
-      </li>
-    )
-  }
-}
-
-class Box extends Component {
-  static propTypes = {
-    info: PropTypes.string.isRequired,
-    // date: PropTypes.string.isRequired
-    date: PropTypes.string
-  }
-  render(){
-    const { info, date } = this.props
-    return(
-      <div style={{ border: '1px solid #09f', margin: 10, padding: 10 }}>
-        <p>{info}</p>
-        <p>{date &&<em>la fecha es {date}</em>}</p>
-        {this.props.children}    
-      </div>
-    )
-  }
-}
 
 const numbers = [1, 1, 3 ,4 ,5];
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state = { mouseX: 0, mouseY: 0 };
+  constructor(props){
+    console.log("constructor App")
+    super(props)
+    this.state = { mouseX: 0, mouseY: 0, scroll: 0 };
+  }
+
+  componentWillMount(){
+    console.log("WillMount App")
+  }
+
+  componentDidMount(){
+    console.log("DidMount App")
+    // esta subscripción no se elimina automaticamente
+    document.addEventListener('scroll', () => {
+      this.setState({ scroll: window.scrollY })
+    })
   }
 
   handleMouseMove = (e) => {
@@ -52,13 +37,19 @@ class App extends Component {
     console.log(e)
     alert('Test 2')
   }
+
   render(){
+    console.log("render App")
     return (
       <div>
+        <FetchExample />
         <Forms />
         <ConditionalSection />
         <div>
           <button onClick={this.handleClick}>Test on clic</button>
+        </div>
+        <div>
+          <p>El scroll Y es: {this.state.scroll}</p>
         </div>
         <div
           onMouseMove={this.handleMouseMove}
