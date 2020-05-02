@@ -3,7 +3,7 @@ import ConditionalSection from './conditional'
 import Forms from './forms'
 import Box from './box'
 import CarItem from './car_item'
-import cars from '../data/cars.json'
+import cars from '../../data/cars.json'
 
 const numbers = [1, 1, 3 ,4 ,5];
 

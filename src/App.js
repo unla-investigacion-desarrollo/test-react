@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
-import BitcoinPriceContainer from './sections/container-component'
 
 class App extends Component {
   // recordar StrictMode
@@ -8,7 +6,6 @@ class App extends Component {
     console.log("render App")
     return (
       <div>
-        <BitcoinPriceContainer />
       </div>
     );
   }
