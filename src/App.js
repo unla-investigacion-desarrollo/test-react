@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Stateless from './sections/stateless_example'
+import BitcoinPriceContainer from './sections/container-component'
 
 class App extends Component {
+  // recordar StrictMode
   render(){
     console.log("render App")
     return (
       <div>
-        <h4>TEST CONDITIONAL</h4>
-        < Stateless msj='hola' msj1='hello' msj2='¿cómo estás?'/>
+        <BitcoinPriceContainer />
       </div>
     );
   }
