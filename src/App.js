@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
-import { Title } from './components/Title'
-import { SearchForm } from './components/SearchForm'
-import { MoviesList } from './components/MoviesList'
+import { Detail } from './pages/Detail'
+import { Home } from './pages/Home'
 
 import './App.css'
 import 'bulma/css/bulma.css'
 
 class App extends Component {
   // recordar StrictMode
-  state = { usedSearch: false, results: [] }
-
-  _handleResuts = (results) => {
-    this.setState({ results, usedSearch: true })
-  }
-
-  _renderResults(results) {
-    return results.length === 0
-      ? <p>Without results :/</p>
-      : <MoviesList movies={results}/>
-  }
 
   render(){
     console.log("render App")
+    const url = new URL(document.location)
+    const Page = url.searchParams.has('id')
+      ? <Detail id={url.searchParams.get('id')}/>
+      : <Home />
     return (
       <div className='App'>
-          <Title>Search Movies</Title>
-          <div className="search-form-wrapper">
-            <SearchForm onResults={this._handleResuts} />
-          </div>
-          {this.state.usedSearch
-            ? this._renderResults(this.state.results)
-            : <p>Use this form to search a movie</p>
-          }
+        {Page}
       </div>
-    );
+    )
   }
 }
 

@@ -16,6 +16,7 @@ export class MoviesList extends Component {
             return (
               <div className='movies-list-item' key={movie.imdbID}>
                 <Movie
+                  id={movie.imdbID}
                   poster={movie.Poster}
                   title={movie.Title}
                   year={movie.Year}
