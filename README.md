@@ -1,7 +1,7 @@
 Test React
 
 ## Available Scripts
-This project was build with this [free udemy react course](https://www.udemy.com/course/aprendiendo-react/).
+This project was build with this [free udemy react course](https://www.udemy.com/course/aprendiendo-react/) and this [fredd udemy react hooks course](https://www.udemy.com/course/react-hooks-guia-inicial-utilizando-redux-y-materialui/).
 
 And use:
 - ReactJS
@@ -10,6 +10,10 @@ And use:
 - Bulma css
 - Fetch with Coindesk API and OMDB API
 - Redux
+- React Saga
+- Axios
+- Material UI
+- React Hooks
 
 ## Learn More
 
