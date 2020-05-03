@@ -10,9 +10,10 @@ import 'bulma/css/bulma.css'
 
 class App extends Component {
   render(){
-    console.log("render App")
+    console.log('render App')
     return (
       <div className='App'>
+        <p>Environment: {process.env.NODE_ENV}</p>
         <ComponentWithConnectionToRedux />
         <Switch>
           <Route exact path='/' component={Home} />

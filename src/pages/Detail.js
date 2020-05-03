@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { ButtonBackHome } from '../components/ButtonBackHome'
 
-const API_KEY = 'd2b8197d'
-
 export class Detail extends Component {
   static propTypes = {
     match: PropTypes.shape({
@@ -22,7 +20,7 @@ export class Detail extends Component {
   }
 
   _fetchMovie({ id }) {
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+    fetch(`${process.env.REACT_APP_OMDBAPI_API}/?apikey=${process.env.REACT_APP_OMDBAPI_API_KEY}&i=${id}`)
     .then(res => res.json())
     .then(movie => {
       this.setState({ movie })

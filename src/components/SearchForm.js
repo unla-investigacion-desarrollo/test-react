@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-const API_KEY = 'd2b8197d'
-
 export class SearchForm extends Component {
   state = {
     inputMovie: ''
@@ -14,7 +12,7 @@ export class SearchForm extends Component {
   _handleSubmit = (e) => {
     e.preventDefault()
     const { inputMovie } = this.state
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${inputMovie}`)
+    fetch(`${process.env.REACT_APP_OMDBAPI_API}/?apikey=${process.env.REACT_APP_OMDBAPI_API_KEY}&s=${inputMovie}`)
       .then(res => res.json())
       .then(results => {
         // default value [] if we have not results
