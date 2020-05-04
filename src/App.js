@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import { Detail } from './pages/Detail'
+import { DetailHook } from './pages/DetailHook'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import ComponentWithConnectionToRedux from './containers/Counter'
@@ -17,7 +17,7 @@ class App extends Component {
         <ComponentWithConnectionToRedux />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/detail/:id' component={Detail} />
+          <Route path='/detail/:id' component={DetailHook} />
           <Route component={NotFound} />
         </Switch>
       </div>
